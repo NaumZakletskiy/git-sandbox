@@ -1,3 +1,4 @@
 function main() {
-    return {}
+    return {test: 123}
+
 }
