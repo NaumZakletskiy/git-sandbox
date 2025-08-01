@@ -1,1 +1,3 @@
-export function fiture1(){}
+export function fiture1(){
+    return {}
+}
