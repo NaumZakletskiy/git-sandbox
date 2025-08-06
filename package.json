@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Sefine your tests\" && exit 0",
+    "test": "echo \"Define your tests\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix --color",
     "release:patch": "./scripts/release.sh patch",
     "release:minor": "./scripts/release.sh minor",
