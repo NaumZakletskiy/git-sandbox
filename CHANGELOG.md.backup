@@ -56,3 +56,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated fiture function
 - Merge branch 'dev'
 - Updated main function
+
+## [1.0.1] - 2025-08-06
+
+### Added
+-  added eslint
+-  added gitignore
+-  added changelog
+-  added auto releases
+-  add something new
+-  add something new
+
+### Fixed
+-  updated  test script
+-  updated  test script
+-  updated gitignore
+
+### Other Changes
+- Merge remote-tracking branch 'origin/dev' into dev
+- Merge branch 'main' into dev
+- Merge pull request #8 from NaumZakletskiy/dev
+- Merge pull request #6 from NaumZakletskiy/dev
+- Created executeByChunks2.ts
+- Merge pull request #5 from NaumZakletskiy/dev
+- Merge pull request #4 from NaumZakletskiy/main
+- Added releaserc.json
+- Merge pull request #3 from NaumZakletskiy/dev
+- Added package.json
+- Merge pull request #2 from NaumZakletskiy/dev
+- Created executeByChunks function
+- Create release.yml
+- Merge pull request #1 from NaumZakletskiy/dev
+- Merge branch 'main' into dev
+- created fiture function
+- deleted fiture function
+- Updated fiture function
+- Merge branch 'dev'
