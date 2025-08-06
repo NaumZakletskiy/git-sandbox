@@ -87,31 +87,22 @@ jobs:
           # Add additional context
           NOTES="$NOTES
 
-**Docker Image**: \`${{ github.repository }}:${VERSION#v}\`
-**Git Commit**: \`${{ github.sha }}\`
-**Release Date**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
 
----
-*This release was automatically created by GitHub Actions*"
-  
-  echo "NOTES<<EOF" >> $GITHUB_OUTPUT
-  echo -e "$NOTES" >> $GITHUB_OUTPUT
-  echo "EOF" >> $GITHUB_OUTPUT
 
-- name: Create GitHub Release
-  uses: softprops/action-gh-release@v1
-  with:
-    tag_name: ${{ steps.get_version.outputs.VERSION }}
-    name: Release ${{ steps.get_version.outputs.VERSION }}
-    body: ${{ steps.release_notes.outputs.NOTES }}
-    draft: false
-    prerelease: false
-    generate_release_notes: true
-    make_latest: true
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          name: Release ${{ steps.get_version.outputs.VERSION }}
+          body: ${{ steps.release_notes.outputs.NOTES }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-- name: Notify success
-  run: |
-    echo "✅ Release ${{ steps.get_version.outputs.VERSION }} created successfully!"
-    echo "🔗 Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ steps.get_version.outputs.VERSION }}"
+      - name: Notify success
+        run: |
+          echo "✅ Release ${{ steps.get_version.outputs.VERSION }} created successfully!"
+          echo "🔗 Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ steps.get_version.outputs.VERSION }}"
