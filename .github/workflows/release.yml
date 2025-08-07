@@ -89,12 +89,12 @@ jobs:
           
           NOTES="$NOTES
 
-**Docker Image**: \`${REPO}:${VERSION#v}\`
-**Git Commit**: \`${SHA}\`
-**Release Date**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          **Docker Image**: \`${REPO}:${VERSION#v}\`
+          **Git Commit**: \`${SHA}\`
+          **Release Date**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
 
----
-*This release was automatically created by GitHub Actions*"
+          ---
+          *This release was automatically created by GitHub Actions*"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
