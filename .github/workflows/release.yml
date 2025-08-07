@@ -76,27 +76,32 @@ jobs:
         id: release_notes
         run: |
           VERSION=${{ steps.get_version.outputs.VERSION }}
+          REPO="${GITHUB_REPOSITORY}"
+          SHA="${GITHUB_SHA}"
+          
           if [ -f "scripts/generate-release-notes.js" ]; then
             echo "Generating release notes from CHANGELOG.md..."
             NOTES=$(node scripts/generate-release-notes.js "$VERSION" || echo "Release notes could not be generated from CHANGELOG.md")
           else
             echo "No release notes generator found, creating basic notes..."
-            NOTES="## Release $VERSION\n\nSee the [full changelog](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details."
+            NOTES="## Release $VERSION\n\nSee the [full changelog](https://github.com/$REPO/blob/main/CHANGELOG.md) for details."
           fi
           
-          # Add additional context
           NOTES="$NOTES
 
-**Docker Image**: \`${{ github.repository }}:${VERSION#v}\`
-**Git Commit**: \`${{ github.sha }}\`
-**Release Date**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+      **Docker Image**: \`${REPO}:${VERSION#v}\`
+      **Git Commit**: \`${SHA}\`
+      **Release Date**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
 
----
-*This release was automatically created by GitHub Actions*"
-          
-          echo "NOTES<<EOF" >> $GITHUB_OUTPUT
-          echo -e "$NOTES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+    ---
+    *This release was automatically created by GitHub Actions*"
+
+      {
+        echo "NOTES<<EOF"
+        echo "$NOTES"
+        echo "EOF"
+      } >> "$GITHUB_OUTPUT"
+
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
