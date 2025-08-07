@@ -95,6 +95,10 @@ jobs:
 
           ---
           *This release was automatically created by GitHub Actions*"
+          
+          echo "NOTES<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
