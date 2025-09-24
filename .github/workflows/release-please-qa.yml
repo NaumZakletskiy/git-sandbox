@@ -18,7 +18,7 @@ jobs:
           target-branch: ${{ github.ref_name }}
           config-file: release-please-config.qa.json
           skip-github-pull-request: true
-          skip-labeling: true
+          skip-labeling: false
           skip-github-release: false
         env:
           RELEASE_PLEASE_DEBUG: "true"
