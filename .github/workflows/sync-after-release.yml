@@ -1,0 +1,31 @@
+name: Sync main -> qa/dev after release
+on:
+  release:
+    types: [released]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, ref: main }
+      - name: Create PR to QA
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          branch: sync/main-to-qa-${{ github.event.release.tag_name }}
+          base: qa
+          title: "chore(sync): main → qa (${{ github.event.release.tag_name }})"
+          body: "Auto sync of release metadata (CHANGELOG, version)."
+          labels: "release-sync"
+      - name: Create PR to DEV
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          branch: sync/main-to-dev-${{ github.event.release.tag_name }}
+          base: dev
+          title: "chore(sync): main → dev (${{ github.event.release.tag_name }})"
+          body: "Auto sync of release metadata (CHANGELOG, version)."
+          labels: "release-sync"
