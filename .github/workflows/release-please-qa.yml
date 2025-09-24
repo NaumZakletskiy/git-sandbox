@@ -1,0 +1,22 @@
+name: Release (pre-release from qa)
+
+on:
+  push:
+    branches: [ qa ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          target-branch: ${{ github.ref_name }}
+          config-file: release-please-config.qa.json
+          skip-github-pull-request: true
+          skip-labeling: true
+          skip-github-release: false
