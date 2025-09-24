@@ -1,4 +1,5 @@
 name: Release (stable from main)
+
 on:
   push: { branches: [ main ] }
   workflow_dispatch:
@@ -11,5 +12,5 @@ jobs:
         with:
           target-branch: ${{ github.ref_name }}
           config-file: release-please-config.main.json
-          skip-github-pull-request: false              # создаём Release-PR с CHANGELOG.md
+          skip-github-pull-request: false
           skip-github-release: false
