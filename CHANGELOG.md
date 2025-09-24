@@ -5,6 +5,17 @@ All notable changes to the CDH Service API project will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/NaumZakletskiy/git-sandbox/compare/git-sandbox-v1.1.0...git-sandbox-v1.2.0) (2025-09-24)
+
+
+### Features
+
+* added files sync ([c89f45f](https://github.com/NaumZakletskiy/git-sandbox/commit/c89f45f6ff16b161dcb6f278c7880e05db4de8ab))
+* added files sync ([1a92227](https://github.com/NaumZakletskiy/git-sandbox/commit/1a9222751604bf53b05b3252a2c9966cab68a558))
+* added files sync ([38d6d8e](https://github.com/NaumZakletskiy/git-sandbox/commit/38d6d8e7d2a21e06252f02f28f11c2a6f04bff79))
+* added files sync ([7061b22](https://github.com/NaumZakletskiy/git-sandbox/commit/7061b2299b627af5a0fc103b531306d99f6377ab))
+* small update ([f62c0d7](https://github.com/NaumZakletskiy/git-sandbox/commit/f62c0d7a3d6ad734cb45da0faccbd7509e6bc819))
+
 ## [1.1.0](https://github.com/NaumZakletskiy/git-sandbox/compare/git-sandbox-v1.0.7...git-sandbox-v1.1.0) (2025-09-24)
 
 
