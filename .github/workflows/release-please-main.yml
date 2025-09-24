@@ -11,5 +11,5 @@ jobs:
         with:
           target-branch: ${{ github.ref_name }}
           config-file: release-please-config.main.json
-          skip-github-pull-request: false
+          skip-github-pull-request: false              # создаём Release-PR с CHANGELOG.md
           skip-github-release: false
