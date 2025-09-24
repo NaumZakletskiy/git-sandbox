@@ -1,14 +1,8 @@
 name: Release (pre-release from qa)
-
 on:
-  push:
-    branches: [ qa ]
+  push: { branches: [ qa ] }
   workflow_dispatch:
-
-permissions:
-  contents: write
-  pull-requests: write
-
+permissions: { contents: write, pull-requests: write }
 jobs:
   prerelease:
     runs-on: ubuntu-latest
